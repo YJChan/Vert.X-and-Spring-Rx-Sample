@@ -26,3 +26,21 @@ To build the vert.x project individually
 4. run it with mvn exec:java
 
 The vert.x project will run under 127.0.0.1:8081
+
+To build the spring.rx project individually
+1. navigate to spring.rx folder /src/main/java/task/config
+   modify the R2DBCConfig.java for the correct mysql host and port
+2. mvn clean
+3. mvn spring-boot:run
+The spring.rx project will run under 127.0.0.1:8082
+   
+Simple Benchmark for Vert.x
+![alt text](https://github.com/YJChan/Vert.X-and-Spring-Rx-Sample/blob/main/vert.x/response-time-graph-vertx.png?raw=true)
+
+![alt text](https://github.com/YJChan/Vert.X-and-Spring-Rx-Sample/blob/main/vert.x/summary-report-vertx.png?raw=true)
+
+Simple Benchmark for Spring Reactive
+![alt text](https://github.com/YJChan/Vert.X-and-Spring-Rx-Sample/blob/main/spring.rx/response-time-graph-springrx.png?raw=true)
+
+![alt text](https://github.com/YJChan/Vert.X-and-Spring-Rx-Sample/blob/main/spring.rx/summary-report-springrx.png?raw=true)
+
