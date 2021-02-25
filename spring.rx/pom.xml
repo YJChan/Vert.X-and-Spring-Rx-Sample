@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>ReactiveRestService</artifactId>
+    <version>0.1.0</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.0.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mariadb</groupId>
+			<artifactId>r2dbc-mariadb</artifactId>
+<!--			<version>0.8.2-alpha2</version>-->
+			<version>1.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.r2dbc</groupId>
+			<artifactId>r2dbc-pool</artifactId>
+			<version>0.8.3.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-r2dbc</artifactId>
+			<version>1.1.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	</dependencies>
+
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+<!--	<build>-->
+<!--		<pluginManagement>-->
+<!--			<plugins>-->
+<!--				<plugin>-->
+<!--					<groupId>org.springframework.boot</groupId>-->
+<!--					<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--				</plugin>-->
+<!--&lt;!&ndash;				<plugin>&ndash;&gt;-->
+<!--&lt;!&ndash;					<groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;					<artifactId>maven-jar-plugin</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;					<version>3.1.0</version>&ndash;&gt;-->
+<!--&lt;!&ndash;					<configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;						<archive>&ndash;&gt;-->
+<!--&lt;!&ndash;							<manifest>&ndash;&gt;-->
+<!--&lt;!&ndash;								<addClasspath>true</addClasspath>&ndash;&gt;-->
+<!--&lt;!&ndash;								<classpathPrefix>lib/</classpathPrefix>&ndash;&gt;-->
+<!--&lt;!&ndash;								<mainClass>task.Application</mainClass>&ndash;&gt;-->
+<!--&lt;!&ndash;							</manifest>&ndash;&gt;-->
+<!--&lt;!&ndash;						</archive>&ndash;&gt;-->
+<!--&lt;!&ndash;					</configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;				</plugin>&ndash;&gt;-->
+<!--			</plugins>-->
+<!--		</pluginManagement>-->
+<!--	</build>-->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<mainClass>task.Application</mainClass>
+						<layers>
+							<enabled>true</enabled>
+						</layers>
+					</configuration>
+
+<!--					<executions>-->
+<!--						<execution>-->
+<!--							<goals>-->
+<!--								<goal>repackage</goal>-->
+<!--							</goals>-->
+<!--						</execution>-->
+<!--					</executions>-->
+				</plugin>
+			</plugins>
+		</pluginManagement>
+    </build>
+<!--	<build>-->
+<!--		<plugins>-->
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--				<configuration>-->
+<!--					<layers>-->
+<!--						<enabled>true</enabled>-->
+<!--					</layers>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
+<!--		</plugins>-->
+<!--	</build>-->
+</project>
