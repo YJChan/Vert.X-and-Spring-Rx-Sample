@@ -1,0 +1,56 @@
+version: '3'
+services:
+    tododb:
+        container_name: tododb
+        image: 'mariadb'
+        restart: 'on-failure'
+        command: --init-file /init.sql
+        volumes:
+            - /home/yongjia/JavaProjects/demo/init.sql:/init.sql
+        environment:              
+            MYSQL_ROOT_PASSWORD: 'password'
+            MYSQL_DATABASE: 'tododb'
+            MYSQL_USER: 'appuser'
+            MYSQL_PASSWORD: 'password'
+            MYSQL_ROOT_HOST: '%'
+        networks: ['backend']
+        ports:
+            - '3307:3306'
+    tododb2:
+        image: 'mariadb'
+        restart: 'always'
+        command: --init-file /init.sql
+        volumes:
+            - /home/yongjia/JavaProjects/demo/init.sql:/init.sql
+        environment:
+            MYSQL_ROOT_PASSWORD: 'password'
+            MYSQL_DATABASE: 'tododb'
+            MYSQL_USER: 'appuser'
+            MYSQL_PASSWORD: 'password'
+            MYSQL_ROOT_HOST: '%'
+        networks: ['backend']
+        ports:
+            - '3308:3306'
+    vertxtodo:
+        depends_on:
+            - 'tododb'
+        build: ./vert.x/.
+        networks: ['backend']
+        links:
+            - 'tododb'
+        ports:
+            - '8081:8080'
+    springrxtodo:
+        depends_on:
+            - 'tododb2'
+        build: ./spring.rx/.
+        networks: ['backend']
+        ports:
+            - '8082:8082'
+networks:
+    backend:
+        driver: 'bridge'
+#networks:
+#    backend_todo:
+#        external:
+#            name: 'todo-app'

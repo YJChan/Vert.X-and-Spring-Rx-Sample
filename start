@@ -1,0 +1,6 @@
+run in detach mode:
+    docker-compose up -d
+take down docker-compose
+    docker-compose down
+run with image build:
+    docker-compose up --build
